@@ -12,7 +12,7 @@
     <a href="/kelas">Kembali</a>
     <table>
         <tr>
-            <td>Nama mahasiswa</td>
+            <td>Nama Mahasiswa Baru</td>
             <td>:</td>
             <td><?= $crud_kelas['nama'] ?></td>
         </tr>
