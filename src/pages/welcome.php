@@ -22,9 +22,14 @@ use Symfony\Component\HttpFoundation\Session\Session;
 
 <body>
     <div class="container" style="padding-top: 120px;">
-        <h1><center>Welcome!</center></h1>
+        <h1>
+            <center>Welcome!</center>
 
-        
+        </h1>
+        <h3 align="center"><a href="/kelas">Data Kelas</a> | <a href="/crud">Data Mahasiswa</a>| <a href="/matakuliah">Data Matakuliah</a></h3>
+
+
+
     </div>
 
     <script src="/assets/js/jquery-3.3.1.min.js"></script>

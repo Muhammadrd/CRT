@@ -2,6 +2,9 @@
 
 namespace App;
 
+use App\Kelas\Model\Kelas;
+use App\MAHASISWA\Model\Mahasiswa;
+use App\Matakuliah\Model\Matakuliah;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -9,7 +12,6 @@ class MainController
 {
     public function __construct()
     {
-        
     }
 
     public function index(Request $request)

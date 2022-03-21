@@ -16,11 +16,17 @@
             <td>:</td>
             <td><?= $crud_kelas['nama'] ?></td>
         </tr>
+
         <tr>
-            <td>Matakuliah</td>
+            <td>Matakuliah </td>
             <td>:</td>
-            <td><?= $crud_kelas['mata_kuliah'] ?></td>
+            <?php foreach ($arr_kos as $key => $value) { ?>
+                <td><?= $value['mata_kuliah'] ?> , </td>
+            <?php } ?>
         </tr>
+
+
+
     </table>
 </body>
 
