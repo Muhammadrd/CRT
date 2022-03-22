@@ -1,9 +1,3 @@
-<?php
-
-use Core\Classes\Session as ClassesSession;
-use Core\Classes\SessionData;
-use Symfony\Component\HttpFoundation\Session\Session;
-?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -11,13 +5,11 @@ use Symfony\Component\HttpFoundation\Session\Session;
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-
+    <title>Create Data Matakuliah</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/fontawesome.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
     <link rel="stylesheet" href="/assets/css/style.css">
-
 </head>
 
 <body>
@@ -61,14 +53,6 @@ use Symfony\Component\HttpFoundation\Session\Session;
                             <li><a class="dropdown-item" href="/kelas">Data Kelas</a></li>
                         </ul>
                     </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Staff
-                        </a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="/dosen">Data Dosen</a></li>
-                        </ul>
-                    </li>
                 </ul>
                 <form class="d-flex">
                     <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
@@ -78,15 +62,20 @@ use Symfony\Component\HttpFoundation\Session\Session;
         </div>
     </nav>
     <!-------------------------------------End Navbar ----------------------------------------->
-
-    <!------------------------------------ Start Navbar --------------------------------------->
-    <!-------------------------------------End Navbar ----------------------------------------->
-
-
-
-
-
-
+    <div class="container" style="width: fit-content; margin-left:20px; width:500px;">
+        <a href="/dosen">Kembali</a>
+        <form action="/dosen/<?= $crud_dosen['id'] ?>/update" method="post">
+            <div class="mb-3" style="margin-top: 10px;">
+                <label for="nid" class="form-label">NID</label>
+                <input type="number" class="form-control" name="nid" aria-describedby="emailHelp" value="<?= $crud_dosen['nid'] ?>">
+            </div>
+            <div class="mb-3">
+                <label for="nama_dosen" class="form-label">Jumlah SKS</label>
+                <input type="text" class="form-control" name="nama_dosen" value="<?= $crud_dosen['nama_dosen'] ?>">
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
 
 
 

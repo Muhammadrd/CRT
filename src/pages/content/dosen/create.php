@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Data Mahasiswa</title>
+  <title>Create Data Matakuliah</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
   <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/fontawesome.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
@@ -16,7 +16,7 @@
   <!------------------------------------ Start Navbar ------------------------------------>
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
-      <a class="navbar-brand" href="#">LOGO</a>
+      <a class="navbar-brand" href="#" disabled>LOGO</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -63,36 +63,23 @@
   </nav>
   <!-------------------------------------End Navbar ----------------------------------------->
 
-  <!------------------------------------ Start Table --------------------------------------->
+  <!------------------------------------ Start form --------------------------------------->
+  <div class="container" style="width: fit-content; margin-left:20px; width:500px;">
+    <a href="/dosen">Kembali</a>
+    <form action="/dosen/store" method="post">
+      <div class="mb-3">
+        <label for="nid" class="form-label">Nomor Induk Dosen</label>
+        <input type="number" class="form-control" name="nid">
+      </div>
+      <div class="mb-3" style="margin-top: 10px;">
+        <label for="nama_dosen" class="form-label">Nama Dosen</label>
+        <input type="text" class="form-control" name="nama_dosen" aria-describedby="emailHelp">
+      </div>
 
-
-  <div class="container" style="margin-top: 20px; ">
-    <a href="/crud/create"><button type="button" class="btn btn-success btn-sm">Tambah Data</button></a>
-    <table class="table table-striped ">
-      <thead>
-        <tr>
-          <th scope="col">No</th>
-          <th scope="col">Nama Mahasiswa</th>
-          <th scope="col">Action</th>
-        </tr>
-      </thead>
-      <tbody>
-        <?php foreach ($crud_mahasiswa->items as $key => $value) { ?>
-          <tr>
-            <th scope="row"><?= $key += 1 ?></th>
-            <td><?= $value['nama'] ?></td>
-            <td>
-              <a href="/crud/<?= $value['id'] ?>/show"><button type="button" class="btn btn-info btn-sm">Detail</button></a>
-              <a href="/crud/<?= $value['id'] ?>/edit"><button type="button" class="btn btn-primary btn-sm">Edit</button></a>
-              <a href="/crud/<?= $value['id'] ?>/delete"><button type="button" class="btn btn-danger btn-sm">Hapus</button></a>
-            </td>
-          </tr>
-        <?php } ?>
-      </tbody>
-    </table>
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
   </div>
-  <!-------------------------------------End Table ----------------------------------------->
-
+  <!-------------------------------------End form ----------------------------------------->
 
 
 

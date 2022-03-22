@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Data Mahasiswa</title>
+  <title>Data Dosen</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
   <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/fontawesome.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
@@ -64,27 +64,27 @@
   <!-------------------------------------End Navbar ----------------------------------------->
 
   <!------------------------------------ Start Table --------------------------------------->
-
-
   <div class="container" style="margin-top: 20px; ">
-    <a href="/crud/create"><button type="button" class="btn btn-success btn-sm">Tambah Data</button></a>
+    <a href="/dosen/create"><button type="button" class="btn btn-success btn-sm">Tambah Data</button></a>
     <table class="table table-striped ">
       <thead>
         <tr>
           <th scope="col">No</th>
-          <th scope="col">Nama Mahasiswa</th>
+          <th scope="col">NID</th>
+          <th scope="col">Nama Dosen</th>
           <th scope="col">Action</th>
         </tr>
       </thead>
       <tbody>
-        <?php foreach ($crud_mahasiswa->items as $key => $value) { ?>
+        <?php foreach ($crud_dosen->items as $key => $value) { ?>
           <tr>
             <th scope="row"><?= $key += 1 ?></th>
-            <td><?= $value['nama'] ?></td>
+            <td><?= $value['nid'] ?></td>
+            <td><?= $value['nama_dosen'] ?></td>
             <td>
-              <a href="/crud/<?= $value['id'] ?>/show"><button type="button" class="btn btn-info btn-sm">Detail</button></a>
-              <a href="/crud/<?= $value['id'] ?>/edit"><button type="button" class="btn btn-primary btn-sm">Edit</button></a>
-              <a href="/crud/<?= $value['id'] ?>/delete"><button type="button" class="btn btn-danger btn-sm">Hapus</button></a>
+              <a href="/dosen/<?= $value['id'] ?>/show"><button type="button" class="btn btn-info  btn-sm">Detail</button></a>
+              <a href="/dosen/<?= $value['id'] ?>/edit"><button type="button" class="btn btn-primary btn-sm">Edit</button></a>
+              <a href="/dosen/<?= $value['id'] ?>/delete"><button type="button" class="btn btn-danger btn-sm">Hapus</button></a>
             </td>
           </tr>
         <?php } ?>
@@ -92,6 +92,10 @@
     </table>
   </div>
   <!-------------------------------------End Table ----------------------------------------->
+
+
+
+
 
 
 

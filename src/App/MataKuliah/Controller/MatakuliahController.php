@@ -2,28 +2,36 @@
 
 namespace App\Matakuliah\Controller;
 
+
 use App\Matakuliah\Model\Matakuliah;
+use App\Dosen\Model\Dosen;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 
 class MatakuliahController
 {
   public $crud_matakuliah;
+  public $crud_dosen;
 
   public function __construct()
   {
     // memanggil model Matakuliah
     $this->crud_matakuliah = new Matakuliah;
+    $this->crud_dosen = new Dosen;
   }
 
   public function index(Request $request)
   {
-    $crud_matakuliah = $this->crud_matakuliah->get();
+    $crud_matakuliah = $this->crud_matakuliah
+      ->leftJoin('tb_dosen', 'tb_dosen.id', '=', 'tb_matakuliah.id_dosen')
+      ->get();
     return render_template('content/matakuliah/index', ['crud_matakuliah' => $crud_matakuliah]);
   }
   public function create(Request $request)
   {
-    return render_template('content/matakuliah/create', []);
+    $crud_matakuliah = $this->crud_matakuliah->get();
+    $crud_dosen = $this->crud_dosen->get();
+    return render_template('content/matakuliah/create', ['crud_matakuliah' => $crud_matakuliah, 'crud_dosen' => $crud_dosen]);
   }
 
   public function store(Request $request)
@@ -44,9 +52,16 @@ class MatakuliahController
 
   public function show(Request $request)
   {
+    $crud_dosen = $this->crud_dosen->get();
     $id = $request->attributes->get('id');
-    $crud_matakuliah = $this->crud_matakuliah->where('id', $id)->first();
-    return render_template('content/matakuliah/show', ['crud_matakuliah' => $crud_matakuliah]);
+    $crud_matakuliah = $this->crud_matakuliah
+      ->leftJoin('tb_dosen', 'tb_dosen.id', '=', 'tb_matakuliah.id_dosen')
+      ->where('id_dosen', $id)->first();
+
+    // dd($crud_matakuliah);
+
+
+    return render_template('content/matakuliah/show', ['crud_matakuliah' => $crud_matakuliah, 'crud_dosen' => $crud_dosen]);
   }
 
   public function edit(Request $request)
